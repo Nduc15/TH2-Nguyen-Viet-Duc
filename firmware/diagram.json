@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "author": "Nguyen Viet Duc",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -20, "left": 290, "attrs": {} },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 40, "left": -300, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+
+    [ "dht1:VCC", "esp:3V3", "red",   [ "v40",  "h-110" ] ],
+    [ "dht1:SDA", "esp:D15", "green", [ "v70",  "h-140" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v100", "h-120" ] ],
+
+    [ "ldr1:AO",  "esp:D34",   "orange", [ "h30" ] ],
+    [ "ldr1:GND", "esp:GND.2", "black",  [ "h50" ] ],
+    [ "ldr1:VCC", "esp:3V3",   "red",    [ "h20", "v260", "h520" ] ]
+  ],
+  "dependencies": {}
+}
